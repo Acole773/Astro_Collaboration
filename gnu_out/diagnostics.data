@@ -1,0 +1,336 @@
+Wed Feb 12 12:42:44 2025
+Using ASY method
+
+
+
+
+                 --- BEGIN TIME INTEGRATION ---
+
+
+# ASY+ method (with partition functions). 
+*** ADD RG 67 Steps=2 RGeq=1 t=1.0100e-20 logt=-1.9996e+01 devious=1.1022e-129 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=9 RGeq=2 t=1.6837e-20 logt=-1.9774e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=11 RGeq=3 t=2.0373e-20 logt=-1.9691e+01 devious=3.7945e-12 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=12 RGeq=4 t=2.2410e-20 logt=-1.9650e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=18 RGeq=5 t=3.9701e-20 logt=-1.9401e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=21 RGeq=6 t=5.2842e-20 logt=-1.9277e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=23 RGeq=7 t=6.3939e-20 logt=-1.9194e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=27 RGeq=8 t=9.3613e-20 logt=-1.9029e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=28 RGeq=9 t=1.0297e-19 logt=-1.8987e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=29 RGeq=10 t=1.1327e-19 logt=-1.8946e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=33 RGeq=11 t=1.6584e-19 logt=-1.8780e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=36 RGeq=12 t=2.2073e-19 logt=-1.8656e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=42 RGeq=13 t=3.9105e-19 logt=-1.8408e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=43 RGeq=14 t=4.3015e-19 logt=-1.8366e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=46 RGeq=15 t=5.7253e-19 logt=-1.8242e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=48 RGeq=16 t=6.9276e-19 logt=-1.8159e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=50 RGeq=17 t=8.3824e-19 logt=-1.8077e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=51 RGeq=18 t=9.2206e-19 logt=-1.8035e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=55 RGeq=19 t=1.3500e-18 logt=-1.7870e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=62 RGeq=20 t=2.6308e-18 logt=-1.7580e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=70 RGeq=21 t=5.6393e-18 logt=-1.7249e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=72 RGeq=22 t=6.8235e-18 logt=-1.7166e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=78 RGeq=23 t=1.2088e-17 logt=-1.6918e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=94 RGeq=24 t=5.5545e-17 logt=-1.6255e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=98 RGeq=25 t=8.1324e-17 logt=-1.6090e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=107 RGeq=26 t=1.9176e-16 logt=-1.5717e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=111 RGeq=27 t=2.8075e-16 logt=-1.5552e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=115 RGeq=28 t=4.1105e-16 logt=-1.5386e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=127 RGeq=29 t=1.2900e-15 logt=-1.4889e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=136 RGeq=30 t=3.0419e-15 logt=-1.4517e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=137 RGeq=31 t=3.3460e-15 logt=-1.4475e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=145 RGeq=32 t=7.1726e-15 logt=-1.4144e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=147 RGeq=33 t=8.6788e-15 logt=-1.4062e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=151 RGeq=34 t=1.2707e-14 logt=-1.3896e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=152 RGeq=35 t=1.3977e-14 logt=-1.3855e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=155 RGeq=36 t=1.8604e-14 logt=-1.3730e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=160 RGeq=37 t=2.9962e-14 logt=-1.3523e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=164 RGeq=38 t=4.3867e-14 logt=-1.3358e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=167 RGeq=39 t=5.8387e-14 logt=-1.3234e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=169 RGeq=40 t=7.0648e-14 logt=-1.3151e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=174 RGeq=41 t=1.1378e-13 logt=-1.2944e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=178 RGeq=42 t=1.6658e-13 logt=-1.2778e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=187 RGeq=43 t=3.9280e-13 logt=-1.2406e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=192 RGeq=44 t=6.3260e-13 logt=-1.2199e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=194 RGeq=45 t=7.6545e-13 logt=-1.2116e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=196 RGeq=46 t=9.2619e-13 logt=-1.2033e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=199 RGeq=47 t=1.2328e-12 logt=-1.1909e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=201 RGeq=48 t=1.4916e-12 logt=-1.1826e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=203 RGeq=49 t=1.8049e-12 logt=-1.1744e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=209 RGeq=50 t=3.1975e-12 logt=-1.1495e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=221 RGeq=51 t=1.0035e-11 logt=-1.0998e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=225 RGeq=52 t=1.4692e-11 logt=-1.0833e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=226 RGeq=53 t=1.6161e-11 logt=-1.0792e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=227 RGeq=54 t=1.7778e-11 logt=-1.0750e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=229 RGeq=55 t=2.1511e-11 logt=-1.0667e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=230 RGeq=56 t=2.3662e-11 logt=-1.0626e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=232 RGeq=57 t=2.8631e-11 logt=-1.0543e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=234 RGeq=58 t=3.4644e-11 logt=-1.0460e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=238 RGeq=59 t=5.0722e-11 logt=-1.0295e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=243 RGeq=60 t=8.1688e-11 logt=-1.0088e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=244 RGeq=61 t=8.9857e-11 logt=-1.0046e+01 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=251 RGeq=62 t=1.7510e-10 logt=-9.7567e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=257 RGeq=63 t=3.1021e-10 logt=-9.5083e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=263 RGeq=62 t=5.4955e-10 logt=-9.2600e+00 devious=2.1023e-01 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=265 RGeq=63 t=6.6496e-10 logt=-9.1772e+00 devious=2.5438e-01 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=266 RGeq=62 t=7.3146e-10 logt=-9.1358e+00 devious=2.7982e-01 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=269 RGeq=63 t=9.7357e-10 logt=-9.0116e+00 devious=3.7244e-01 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=270 RGeq=62 t=1.0709e-09 logt=-8.9702e+00 devious=4.0968e-01 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=274 RGeq=63 t=1.5679e-09 logt=-8.8047e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=279 RGeq=64 t=2.5252e-09 logt=-8.5977e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=280 RGeq=65 t=2.7777e-09 logt=-8.5563e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=287 RGeq=66 t=5.4130e-09 logt=-8.2666e+00 devious=2.0707e+00 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=288 RGeq=65 t=5.9543e-09 logt=-8.2252e+00 devious=2.2778e+00 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=288 RGeq=66 t=5.9543e-09 logt=-8.2252e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=289 RGeq=67 t=6.5497e-09 logt=-8.1838e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=290 RGeq=68 t=7.2047e-09 logt=-8.1424e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=291 RGeq=69 t=7.9251e-09 logt=-8.1010e+00 devious=3.0318e+00 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=292 RGeq=68 t=8.7176e-09 logt=-8.0596e+00 devious=3.3349e+00 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=292 RGeq=69 t=8.7176e-09 logt=-8.0596e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=293 RGeq=70 t=9.5894e-09 logt=-8.0182e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=300 RGeq=71 t=1.8687e-08 logt=-7.7285e+00 devious=7.1487e+00 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=301 RGeq=70 t=2.0556e-08 logt=-7.6871e+00 devious=7.8636e+00 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=301 RGeq=71 t=2.0556e-08 logt=-7.6871e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=303 RGeq=72 t=2.4872e-08 logt=-7.6043e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=309 RGeq=73 t=4.4063e-08 logt=-7.3559e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=310 RGeq=74 t=4.8469e-08 logt=-7.3145e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=318 RGeq=75 t=1.0390e-07 logt=-6.9834e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=330 RGeq=76 t=3.2608e-07 logt=-6.4867e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=334 RGeq=77 t=4.7741e-07 logt=-6.3211e+00 devious=1.8263e+02 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=335 RGeq=76 t=5.2515e-07 logt=-6.2797e+00 devious=2.0090e+02 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=339 RGeq=77 t=7.6887e-07 logt=-6.1141e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=340 RGeq=78 t=8.4576e-07 logt=-6.0728e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=341 RGeq=79 t=9.3034e-07 logt=-6.0314e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=343 RGeq=80 t=1.1257e-06 logt=-5.9486e+00 devious=4.3064e+02 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=344 RGeq=79 t=1.2383e-06 logt=-5.9072e+00 devious=4.7370e+02 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=354 RGeq=80 t=3.2118e-06 logt=-5.4933e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=359 RGeq=81 t=5.1726e-06 logt=-5.2863e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=364 RGeq=82 t=8.3305e-06 logt=-5.0793e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=365 RGeq=83 t=9.1636e-06 logt=-5.0379e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=367 RGeq=84 t=1.1088e-05 logt=-4.9552e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=369 RGeq=85 t=1.3416e-05 logt=-4.8724e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=371 RGeq=86 t=1.6234e-05 logt=-4.7896e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=373 RGeq=87 t=1.9643e-05 logt=-4.7068e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=379 RGeq=88 t=3.4799e-05 logt=-4.4584e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=383 RGeq=89 t=5.0949e-05 logt=-4.2929e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=384 RGeq=90 t=5.6044e-05 logt=-4.2515e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 66 Steps=386 RGeq=91 t=6.7813e-05 logt=-4.1687e+00 devious=5.0760e+40 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 66 where=1 Steps=387 RGeq=90 t=7.4594e-05 logt=-4.1273e+00 devious=4.6145e+40 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=391 RGeq=91 t=1.0921e-04 logt=-3.9617e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=392 RGeq=92 t=1.2013e-04 logt=-3.9203e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=395 RGeq=93 t=1.5990e-04 logt=-3.7962e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=397 RGeq=94 t=1.9348e-04 logt=-3.7134e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 66 Steps=398 RGeq=95 t=2.1283e-04 logt=-3.6720e+00 devious=1.6174e+40 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=398 RGeq=96 t=2.1283e-04 logt=-3.6720e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 66 where=1 Steps=399 RGeq=95 t=2.3411e-04 logt=-3.6306e+00 devious=1.4703e+40 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=401 RGeq=96 t=2.8327e-04 logt=-3.5478e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=402 RGeq=97 t=3.1160e-04 logt=-3.5064e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=403 RGeq=98 t=3.4276e-04 logt=-3.4650e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=407 RGeq=99 t=5.0183e-04 logt=-3.2994e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=410 RGeq=100 t=6.6794e-04 logt=-3.1753e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 66 Steps=413 RGeq=101 t=8.8902e-04 logt=-3.0511e+00 devious=3.8718e+39 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=413 RGeq=102 t=8.8902e-04 logt=-3.0511e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 66 where=1 Steps=414 RGeq=101 t=9.7793e-04 logt=-3.0097e+00 devious=3.5198e+39 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=415 RGeq=102 t=1.0757e-03 logt=-2.9683e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=416 RGeq=103 t=1.1833e-03 logt=-2.9269e+00 devious=4.5267e+05 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=417 RGeq=102 t=1.3016e-03 logt=-2.8855e+00 devious=4.9793e+05 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=417 RGeq=103 t=1.3016e-03 logt=-2.8855e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=418 RGeq=104 t=1.4318e-03 logt=-2.8441e+00 devious=5.4773e+05 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=419 RGeq=103 t=1.5750e-03 logt=-2.8027e+00 devious=6.0250e+05 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=419 RGeq=104 t=1.5750e-03 logt=-2.8027e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 66 Steps=422 RGeq=105 t=2.0963e-03 logt=-2.6786e+00 devious=1.6420e+39 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 66 where=1 Steps=423 RGeq=104 t=2.3059e-03 logt=-2.6372e+00 devious=1.4928e+39 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=423 RGeq=105 t=2.3059e-03 logt=-2.6372e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=425 RGeq=106 t=2.7901e-03 logt=-2.5544e+00 devious=1.0674e+06 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=426 RGeq=105 t=3.0692e-03 logt=-2.5130e+00 devious=1.1741e+06 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 66 Steps=429 RGeq=106 t=4.0850e-03 logt=-2.3888e+00 devious=8.4263e+38 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 66 where=1 Steps=430 RGeq=105 t=4.4935e-03 logt=-2.3474e+00 devious=7.6602e+38 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=430 RGeq=106 t=4.4935e-03 logt=-2.3474e+00 devious=1.7190e+06 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=431 RGeq=105 t=4.9429e-03 logt=-2.3060e+00 devious=1.8909e+06 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=433 RGeq=106 t=5.9809e-03 logt=-2.2232e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=434 RGeq=107 t=6.5790e-03 logt=-2.1818e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=438 RGeq=108 t=9.6323e-03 logt=-2.0163e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 32 Steps=440 RGeq=109 t=1.1655e-02 logt=-1.9335e+00 devious=0.0000e+00 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 36 Steps=440 RGeq=110 t=1.1655e-02 logt=-1.9335e+00 devious=0.0000e+00 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=440 RGeq=111 t=1.1655e-02 logt=-1.9335e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=442 RGeq=112 t=1.4103e-02 logt=-1.8507e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=443 RGeq=113 t=1.5513e-02 logt=-1.8093e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 6 Steps=448 RGeq=114 t=2.4984e-02 logt=-1.6023e+00 devious=0.0000e+00 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=448 RGeq=115 t=2.4984e-02 logt=-1.6023e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=454 RGeq=116 t=4.4260e-02 logt=-1.3540e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=455 RGeq=117 t=4.8686e-02 logt=-1.3126e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** ADD RG 66 Steps=457 RGeq=118 t=5.8910e-02 logt=-1.2298e+00 devious=5.8436e+37 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 127 Steps=457 RGeq=119 t=5.8910e-02 logt=-1.2298e+00 devious=   nan Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 66 where=1 Steps=458 RGeq=118 t=6.4801e-02 logt=-1.1884e+00 devious=5.3124e+37 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 107 Steps=459 RGeq=119 t=7.1282e-02 logt=-1.1470e+00 devious=2.7262e+07 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 107 where=1 Steps=460 RGeq=118 t=7.8410e-02 logt=-1.1056e+00 devious=2.9988e+07 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 81 Steps=497 RGeq=119 t=2.6662e+00 logt=4.2590e-01 devious=1.8148e-50 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 66 Steps=501 RGeq=120 t=3.9036e+00 logt=5.9147e-01 devious=3.9830e+37 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 66 where=1 Steps=502 RGeq=119 t=4.2940e+00 logt=6.3286e-01 devious=1.9836e+36 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 110 Steps=581 RGeq=120 t=7.9962e+03 logt=3.9029e+00 devious=1.9433e+03 Rmin=0.0904 Rmax=0.0938
+*** REMOVE RG 110 where=1 Steps=582 RGeq=119 t=8.7958e+03 logt=3.9443e+00 devious=1.1703e+02 Rmin=0.0904 Rmax=0.0938
+*** REMOVE RG 81 where=1 Steps=590 RGeq=118 t=1.8855e+04 logt=4.2754e+00 devious=7.5956e+00 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 225 Steps=603 RGeq=119 t=6.5091e+04 logt=4.8135e+00 devious=1.3445e+03 Rmin=0.0000 Rmax=0.0000
+*** REMOVE RG 225 where=1 Steps=604 RGeq=118 t=7.1601e+04 logt=4.8549e+00 devious=2.3700e+20 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 161 Steps=605 RGeq=119 t=7.8761e+04 logt=4.8963e+00 devious=4.0613e+06 Rmin=0.0026 Rmax=0.1997
+*** REMOVE RG 161 where=1 Steps=606 RGeq=118 t=8.6637e+04 logt=4.9377e+00 devious=2.0613e+06 Rmin=0.0026 Rmax=0.1997
+*** ADD RG 66 Steps=609 RGeq=119 t=1.1531e+05 logt=5.0619e+00 devious=4.4149e+02 Rmin=0.0000 Rmax=0.0019
+*** REMOVE RG 66 where=1 Steps=610 RGeq=118 t=1.2684e+05 logt=5.1033e+00 devious=2.0988e+00 Rmin=0.0000 Rmax=0.0019
+*** ADD RG 147 Steps=621 RGeq=119 t=3.6190e+05 logt=5.5586e+00 devious=7.1289e-09 Rmin=0.0000 Rmax=0.0063
+*** ADD RG 187 Steps=623 RGeq=120 t=4.3790e+05 logt=5.6414e+00 devious=2.4468e-79 Rmin=0.0000 Rmax=0.0113
+*** ADD RG 231 Steps=639 RGeq=121 t=2.0121e+06 logt=6.3037e+00 devious=9.1242e-24 Rmin=0.0000 Rmax=0.0000
+*** ADD RG 170 Steps=653 RGeq=122 t=7.6411e+06 logt=6.8832e+00 devious=1.6385e+15 Rmin=0.0001 Rmax=0.0005
+*** REMOVE RG 170 where=1 Steps=654 RGeq=121 t=8.4052e+06 logt=6.9246e+00 devious=2.2869e+14 Rmin=0.0001 Rmax=0.0005
+
+FINAL ABUNDANCES Y AND MASS FRACTIONS X
+
+0 1n Y=2.964e-21 X=2.964e-21  
+1 1H Y=-1.486e-19 X=-1.486e-19  
+2 2H Y=-3.397e-27 X=-6.794e-27  
+3 3He Y=6.993e-39 X=2.098e-38  
+4 4He Y=-9.233e-22 X=-3.693e-21  
+5 6Li Y=-2.251e-48 X=-1.351e-47  
+6 7Li Y=3.569e-53 X=2.498e-52  
+7 7Be Y=-1.080e-50 X=-7.558e-50  
+8 9Be Y=-2.119e-76 X=-1.907e-75  
+9 8B Y=5.004e-38 X=4.003e-37 (Asy)
+10 10B Y=4.438e-82 X=4.438e-81  
+11 11B Y=4.950e-89 X=5.445e-88  
+12 12C Y=4.166e-02 X=5.000e-01  
+13 13C Y=-1.657e-11 X=-2.153e-10  
+14 14C Y=-1.578e-21 X=-2.209e-20  
+15 13N Y=-6.778e-28 X=-8.811e-27 (Asy)
+16 14N Y=1.719e-23 X=2.406e-22  
+17 15N Y=2.686e-26 X=4.028e-25  
+18 14O Y=-3.187e-31 X=-4.461e-30  
+19 15O Y=1.003e-28 X=1.504e-27  
+20 16O Y=3.125e-02 X=5.000e-01  
+21 17O Y=-1.231e-14 X=-2.092e-13  
+22 18O Y=-6.853e-20 X=-1.234e-18  
+23 17Fl Y=-3.151e-28 X=-5.357e-27  
+24 18Fl Y=-1.350e-24 X=-2.431e-23  
+25 19Fl Y=1.274e-22 X=2.420e-21  
+26 18Ne Y=1.222e-26 X=2.200e-25  
+27 19Ne Y=-1.409e-31 X=-2.677e-30  
+28 20Ne Y=-1.525e-36 X=-3.050e-35  
+29 21Ne Y=3.434e-22 X=7.212e-21  
+30 22Ne Y=-3.211e-31 X=-7.064e-30  
+31 21Na Y=5.351e-31 X=1.124e-29 (Asy)
+32 22Na Y=2.140e-40 X=4.708e-39  
+33 23Na Y=1.931e-22 X=4.441e-21  
+34 23Mg Y=-9.202e-32 X=-2.117e-30  
+35 24Mg Y=1.858e-22 X=4.460e-21  
+36 25Mg Y=2.762e-22 X=6.905e-21  
+37 26Mg Y=-6.791e-30 X=-1.766e-28  
+38 24Al Y=2.458e-33 X=5.900e-32 (Asy)
+39 25Al Y=-5.317e-32 X=-1.329e-30  
+40 26Al Y=-5.426e-41 X=-1.411e-39  
+41 27Al Y=4.412e-39 X=1.191e-37  
+42 28Si Y=1.017e-73 X=2.848e-72  
+43 29Si Y=-4.745e-23 X=-1.376e-21  
+44 30Si Y=4.127e-25 X=1.238e-23  
+45 31Si Y=-3.974e-32 X=-1.232e-30  
+46 32Si Y=-2.471e-38 X=-7.907e-37  
+47 29P Y=-5.835e-37 X=-1.692e-35 (Asy)
+48 30P Y=2.842e-32 X=8.525e-31 (Asy)
+49 31P Y=2.839e-28 X=8.801e-27  
+50 32P Y=-6.647e-37 X=-2.127e-35  
+51 33P Y=1.294e-31 X=4.270e-30  
+52 32S Y=-1.047e-36 X=-3.349e-35  
+53 33S Y=-7.437e-22 X=-2.454e-20  
+54 34S Y=6.513e-20 X=2.214e-18  
+55 35S Y=-1.453e-27 X=-5.086e-26  
+56 36S Y=-2.874e-34 X=-1.035e-32  
+57 33Cl Y=2.793e-36 X=9.215e-35 (Asy)
+58 34Cl Y=-5.777e-31 X=-1.964e-29  
+59 35Cl Y=-2.493e-28 X=-8.727e-27  
+60 36Cl Y=-5.512e-36 X=-1.984e-34  
+61 37Cl Y=1.279e-21 X=4.731e-20  
+62 36Ar Y=-1.160e-42 X=-4.174e-41  
+63 37Ar Y=1.115e-20 X=4.127e-19  
+64 38Ar Y=2.358e-26 X=8.960e-25  
+65 39Ar Y=-7.516e-34 X=-2.931e-32  
+66 40Ar Y=-2.187e-40 X=-8.747e-39  
+67 37K Y=-5.187e-26 X=-1.919e-24  
+68 38K Y=-1.528e-32 X=-5.808e-31  
+69 39K Y=-1.098e-37 X=-4.283e-36  
+70 40K Y=-2.073e-45 X=-8.291e-44  
+71 41K Y=1.386e-51 X=5.681e-50  
+72 40Ca Y=-9.712e-56 X=-3.885e-54  
+73 41Ca Y=9.723e-64 X=3.987e-62  
+74 42Ca Y=1.810e-70 X=7.602e-69  
+75 43Ca Y=5.167e-31 X=2.222e-29  
+76 44Ca Y=1.877e-46 X=8.260e-45  
+77 45Ca Y=2.736e-65 X=1.231e-63  
+78 46Ca Y=6.246e-85 X=2.873e-83  
+79 47Ca Y=-3.496e-105 X=-1.643e-103  
+80 48Ca Y=6.343e-108 X=3.045e-106  
+81 43Sc Y=-2.073e-32 X=-8.913e-31  
+82 44Sc Y=-1.965e-46 X=-8.644e-45  
+83 45Sc Y=-2.199e-64 X=-9.895e-63  
+84 46Sc Y=-1.275e-83 X=-5.866e-82  
+85 47Sc Y=1.128e-60 X=5.304e-59  
+86 48Sc Y=1.809e-77 X=8.681e-76  
+87 49Sc Y=-2.156e-91 X=-1.056e-89  
+88 44Ti Y=-1.294e-92 X=-5.693e-91  
+89 45Ti Y=6.335e-107 X=2.851e-105  
+90 46Ti Y=-4.575e-23 X=-2.104e-21  
+91 47Ti Y=6.572e-28 X=3.089e-26  
+92 48Ti Y=7.495e-47 X=3.598e-45  
+93 49Ti Y=-7.216e-64 X=-3.536e-62  
+94 50Ti Y=1.998e-84 X=9.991e-83  
+95 46V Y=1.533e-39 X=7.053e-38 (Asy)
+96 47V Y=2.435e-32 X=1.145e-30 (Asy)
+97 48V Y=-1.036e-46 X=-4.974e-45  
+98 49V Y=-3.955e-66 X=-1.938e-64  
+99 50V Y=-1.451e-82 X=-7.254e-81  
+100 51V Y=9.024e-99 X=4.602e-97  
+101 48Cr Y=-8.488e-95 X=-4.074e-93  
+102 49Cr Y=8.180e-106 X=4.008e-104  
+103 50Cr Y=2.836e-124 X=1.418e-122  
+104 51Cr Y=2.941e-145 X=1.500e-143  
+105 52Cr Y=-1.404e-163 X=-7.299e-162  
+106 53Cr Y=2.905e-183 X=1.539e-181  
+107 54Cr Y=2.767e-206 X=1.494e-204  
+108 50Mn Y=2.667e-149 X=1.333e-147  
+109 51Mn Y=1.541e-172 X=7.860e-171  
+110 52Mn Y=-2.510e-199 X=-1.305e-197  
+111 53Mn Y=1.351e-221 X=7.162e-220  
+112 54Mn Y=-1.102e-241 X=-5.951e-240  
+113 55Mn Y=7.086e-257 X=3.897e-255  
+114 52Fe Y=-9.690e-252 X=-5.039e-250  
+115 53Fe Y=1.063e-264 X=5.631e-263  
+116 54Fe Y=2.563e-284 X=1.384e-282  
+117 55Fe Y=3.338e-307 X=1.836e-305  
+118 56Fe Y=0.000e+00 X=0.000e+00  
+119 57Fe Y=0.000e+00 X=0.000e+00  
+120 58Fe Y=0.000e+00 X=0.000e+00  
+121 53Co Y=0.000e+00 X=0.000e+00  
+122 54Co Y=0.000e+00 X=0.000e+00  
+123 55Co Y=0.000e+00 X=0.000e+00  
+124 56Co Y=0.000e+00 X=0.000e+00  
+125 57Co Y=0.000e+00 X=0.000e+00  
+126 58Co Y=0.000e+00 X=0.000e+00  
+127 59Co Y=0.000e+00 X=0.000e+00  
+128 56Ni Y=0.000e+00 X=0.000e+00  
+129 57Ni Y=0.000e+00 X=0.000e+00  
+130 58Ni Y=0.000e+00 X=0.000e+00  
+131 59Ni Y=0.000e+00 X=0.000e+00  
+132 60Ni Y=0.000e+00 X=0.000e+00  
+133 61Ni Y=0.000e+00 X=0.000e+00  
+134 62Ni Y=0.000e+00 X=0.000e+00  
+135 57Cu Y=0.000e+00 X=0.000e+00  
+136 58Cu Y=0.000e+00 X=0.000e+00  
+137 59Cu Y=0.000e+00 X=0.000e+00  
+138 60Cu Y=0.000e+00 X=0.000e+00  
+139 61Cu Y=0.000e+00 X=0.000e+00  
+140 62Cu Y=0.000e+00 X=0.000e+00  
+141 63Cu Y=0.000e+00 X=0.000e+00  
+142 59Zn Y=0.000e+00 X=0.000e+00  
+143 60Zn Y=0.000e+00 X=0.000e+00  
+144 61Zn Y=0.000e+00 X=0.000e+00  
+145 62Zn Y=0.000e+00 X=0.000e+00  
+146 63Zn Y=0.000e+00 X=0.000e+00  
+147 64Zn Y=0.000e+00 X=0.000e+00  
+148 65Zn Y=0.000e+00 X=0.000e+00  
+149 66Zn Y=0.000e+00 X=0.000e+00  

@@ -180,8 +180,8 @@ void indexCNOCycle(void);
 //  of isotopes in each network.  These sizes are hardwired for now but eventually we may want 
 //  to read them in and assign them dynamically.
 
-#define ISOTOPES 134                   // Max isotopes in network (e.g. 16 for alpha network)
-#define SIZE 1566                      // Max number of reactions (e.g. 48 for alpha network)
+#define ISOTOPES 150                   // Max isotopes in network (e.g. 16 for alpha network)
+#define SIZE 1604                      // Max number of reactions (e.g. 48 for alpha network)
 
 #define plotSteps 200                // Number of plot output steps
 #define LABELSIZE 35                  // Max size of reaction string a+b>c in characters
@@ -206,13 +206,13 @@ FILE* pfnet;
 // output by the Java code through the stream toCUDAnet has the expected format 
 // for this file. Standard filenames for test cases are listed in table above.
 
-char networkFile[] = "data/network_nova134.inp";
+char networkFile[] = "data/network_150.inp";
 
 // Filename for input rates library data. The file rateLibrary.data output by 
 // the Java code through the stream toRateData has the expected format for this 
 // file.  Standard filenames for test cases are listed in table above.
 
-char rateLibraryFile[] = "data/rateLibrary_nova134.data";
+char rateLibraryFile[] = "data/rateLibrary_150.data";
 
 // Whether to use constant T and rho (hydroProfile false), in which case a
 // constant T9 = T9_start and rho = rho_start are used, or to read
@@ -220,7 +220,7 @@ char rateLibraryFile[] = "data/rateLibrary_nova134.data";
 // in which case the file to be read in is specified by the character variable 
 // hydroFile[].
 
-bool hydroProfile = true; 
+bool hydroProfile = false; 
 
 // Filename for input file containing a hydro profile in temperature
 // and density that is used if hydroProfile = true. Sample hydro profile 
