@@ -69,17 +69,45 @@
  */
 
 
-#include <iostream>   // Standard I/O
-#include <fstream>    // File handling
-#include <cstdlib>    // Utility functions
-#include <cmath>      // Math operations
-#include <vector>     // Dynamic arrays
-#include <algorithm>  // Sorting/searching
-#include <functional> // Function objects
-#include <chrono>     // Time
-#include <string>	  // Strings
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include <string.h>
+#include <stdbool.h>
+#include <ctime>
+#include <gsl/gsl_matrix.h>
+#include <gsl/gsl_vector.h>
+#include <gsl/gsl_blas.h>
+#include <vector>
+#include <algorithm>
+#include <functional>
 
 using namespace std;
+//using std::string;
+
+// Define some CPU timing utilities. Usage:
+//
+//     START_CPU;
+//     ... code to be timed ...
+//     STOP_CPU;
+//     PRINT_CPU
+//
+// These may be used to time CPU processes.
+
+clock_t startCPU,stopCPU;
+#define START_CPU if ((startCPU=clock())==-1) {printf("Error calling clock"); exit(1);}
+#define STOP_CPU if ((stopCPU=clock())==-1) {printf("Error calling clock"); exit(1);}
+#define PRINT_CPU (printf("Timer: %7.4e sec used",(double)(stopCPU-startCPU)/CLOCKS_PER_SEC));
+#define FPRINTF_CPU (fprintf(pFile,"in %7.4e seconds\n",(double)(stopCPU-startCPU)/CLOCKS_PER_SEC));
+#define FPRINTF_CPU2 (fprintf(pFile2,"in %7.4e seconds\n",(double)(stopCPU-startCPU)/CLOCKS_PER_SEC));
+#define FPRINTF_CPU3 (fprintf(plotfile1,"in %7.4e seconds\n",(double)(stopCPU-startCPU)/CLOCKS_PER_SEC));
+#define FPRINTF_CPU4 (fprintf(plotfile2,"in %7.4e seconds\n",(double)(stopCPU-startCPU)/CLOCKS_PER_SEC));
+#define FPRINTF_CPUD (fprintf(pFileD,"in %g seconds\n",(double)(stopCPU-startCPU)/CLOCKS_PER_SEC));
+#define PRINT_CPU_TEST (printf("\nTimer Test: %g ms used by CPU\n",1000*(double)(stopCPU-startCPU)/CLOCKS_PER_SEC));  
 
 // Function signatures:
 
@@ -878,14 +906,11 @@ class Utilities{
         // Static function Utilities::showTime() to return date and local time as a 
         // character array
         
-		static std::string showTime() {
-    		auto now = std::chrono::system_clock::now();
-    		std::time_t now_c = std::chrono::system_clock::to_time_t(now);
-
-    		std::ostringstream oss;
-    		oss << std::put_time(std::localtime(&now_c), "%Y-%m-%d %H:%M:%S");  
-    	return oss.str();
-}
+        static char* showTime(){
+            time_t now = time(0);         // Current date/time
+            char* tnow = ctime(&now);     // convert to string
+            return tnow;
+        }
         
         
         // -------------------------------------------------------------------------
@@ -1015,12 +1040,14 @@ class Utilities{
         
         static int returnNetIndexSymbol(char* symbol) {
             
+            int result;
             for (int i = 0; i < numberSpecies; i++) {
-                if (isoLabel[i] == symbol){
+                result = strcmp(isoLabel[i], symbol);
+                if (result == 0){
                     return i;
                 }
             }
-            return -1; // Not found
+            return -1;
         }
         
         
@@ -1046,12 +1073,15 @@ class Utilities{
         
         static int returnReacIndexBySymbol(char* symbol){
             
+            int result;
             for (int i = 0; i < SIZE; i++) {
-                if (reacLabel[i] == symbol){
+                result = strcmp(reacLabel[i], symbol);
+                if (result == 0){
                     return i;
                 }
             }
             return -1;
+            
         }
         
         // Static function Utilities::compareTwoCharArrays(char1, char2) 
@@ -1072,11 +1102,14 @@ class Utilities{
             
             bool result;
 
-            if(char1 == char2) {
+            if(strcmp(char1, char2) == 0) {
                 result = true;
             } else {
                 result = false;
             }
+            
+//             printf("\nCompare: \"%s\" and %s result=%d", 
+//                 char1, char2, result);
             
             return result;
 
@@ -1145,37 +1178,41 @@ class Utilities{
         // Utilities::MAXCSIZE to increase that.
         // ----------------------------------------------------------------------
         
-        /*
-		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		NOTE TO SELF!!
-		This has been modifyed to return a string because it is Preferd
-		 std::string unless you absolutely need a char* 
-		 (e.g., interfacing with C libraries).
-		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        */
-        static std::string stringToChar(const std::string& s){
+        static char* stringToChar(string s){
             
             // First ensure that string passed to function is not too long
             
-            if(s.length() >= Utilities::MAXCSIZE){
+            if(s.length() > Utilities::MAXCSIZE - 1){
                 
-                std::cerr << "\n\n*** EXIT: The string\n\n" << s 
-                  << "\nof length " << s.length()
-                  << " is too long for stringToChar(string).\n"
-                  << "Change Utilities::MAXCSIZE to at least " << (s.length() + 1) 
-                  << " and recompile.\n\n";
-        		std::exit(1);
+                printf("\n\n*** EXIT: The string\n\n");
+                cout << s;
+                printf("\nof length %d", s.length());
+                printf(" is too long for the Utilities::stringToChar(string) function.");
+                printf(
+                "\nChange Utilities::MAXCSIZE = %d to value of at least %d and recompile.\n\n", 
+                Utilities::MAXCSIZE, s.length() + 1);
+                exit(1);
                 
             }
-            return s; // Return std::string directly
+            
+            static char cs[MAXCSIZE];
+            strcpy(cs, &s[0]);          // alternatively strcpy(cs,s.c_str());
+            return cs;
         }
         
         // The static function Utilities::charArrayToString (char* a, int size) takes a
         // char array of length size and returns a corresponding string.
         
-		static std::string charArrayToString(char* a, int size) {
-    		return std::string(a, size);  // Directly construct a string from the char array
-		}
+        static string charArrayToString (char* a, int size) {
+
+            string s = "";
+            
+            for (int i = 0; i < size; i++) {
+                s = s + a[i];
+            }
+            
+            return s;
+        }
         
         // ----------------------------------------------------------------------
         // Static function Utilities::startTimer() to start a timer.  Stop timer
@@ -1183,7 +1220,8 @@ class Utilities{
         // ----------------------------------------------------------------------
         
         static void startTimer(){
-           start_time = std::chrono::high_resolution_clock::now();  // Capture the start time
+            
+            START_CPU     // Start a timer for rate calculation
         }
         
         
@@ -1192,21 +1230,34 @@ class Utilities{
         // Utilities::startTimer() and display results.
         // ----------------------------------------------------------------------
         
-		static void stopTimer() {
-    		auto end_time = std::chrono::high_resolution_clock::now();
-    		std::chrono::duration<double> elapsed = end_time - start_time;
-
-    		std::cout << "\nElapsed time: "
-            		  << std::fixed << std::setprecision(6)  // Formatting the time output
-            		  << elapsed.count() << " seconds"
-            		  << "\n";
-		}
+        static void stopTimer(){
+            
+            STOP_CPU;        // Stop the timer
+            printf("\n");
+            PRINT_CPU;       // Print timing information for rate calculation
+            printf("\n");
+        }
         
         
         // ----------------------------------------------------------------------
         // Static function Utilities::testTimerCPU() to test CPU timer by 
         // executing long,pointless loop.
         // ----------------------------------------------------------------------
+        
+        static void testTimerCPU(){
+            
+            double a,b;
+            
+            START_CPU;
+            for (long count = 1l; count < 500000l; count++) {
+                a = sqrt(count);
+                b = 1.0/logf(a);
+                a = logf(b)/sqrt(a);
+            }
+            STOP_CPU;
+            PRINT_CPU_TEST;
+            printf("\n");
+        }
     
 };    // End class Utilities
 
@@ -1408,7 +1459,7 @@ class Reaction: public Utilities {
         int RGmemberIndex;           // Index of reaction within its reaction group
         
         char reacGroupClassLett;     // Letter equivalent (A-E) for reacGroupClass
-        std::string reacGroupSymbol; // Schematic equil reaction (e.g. a+b<->c)
+        char* reacGroupSymbol;       // Schematic equil reaction (e.g. a+b<->c)
         int numberReactants;         // Number species on the left side of reaction
         int numberProducts;          // Number species on the right side of reaction
         int numberIsotopes;          // numberReactants + numberProducts in reaction
@@ -1487,37 +1538,37 @@ class Reaction: public Utilities {
                 
                 case 1:
                     reacGroupClassLett = 'A';
-                    reacGroupSymbol = "a<->b";	// Just use a std::string directly -AC
-                    RGstring[reacIndex] = reacGroupSymbol; // RGstring should be a vector of std::string -AC
+                    reacGroupSymbol = Utilities::stringToChar("a<->b");
+                    RGstring[reacIndex] = reacGroupSymbol;
                     break;
                     
                 case 2:
                     reacGroupClassLett = 'B';
-                    reacGroupSymbol = "a+b<->c";
+                    reacGroupSymbol = Utilities::stringToChar("a+b<->c");
                     RGstring[reacIndex] = reacGroupSymbol;
                     break;
                     
                 case 3:
                     reacGroupClassLett = 'C';
-                    reacGroupSymbol = "a+b+c<->d";
+                    reacGroupSymbol = Utilities::stringToChar("a+b+c<->d");
                     RGstring[reacIndex] = reacGroupSymbol;
                     break;
                     
                 case 4:
                     reacGroupClassLett = 'D';
-                    reacGroupSymbol = "a+b<->c+d";
+                    reacGroupSymbol = Utilities::stringToChar("a+b<->c+d");
                     RGstring[reacIndex] = reacGroupSymbol;
                     break;
                     
                 case 5:
                     reacGroupClassLett = 'E';
-                    reacGroupSymbol = "a+b<->c+d+e";
+                    reacGroupSymbol = Utilities::stringToChar("a+b<->c+d+e");
                     RGstring[reacIndex] = reacGroupSymbol;
                     break;
                     
                 case 6:
                     reacGroupClassLett = 'F';
-                    reacGroupSymbol = "a+b<->c+d+e+f";
+                    reacGroupSymbol = Utilities::stringToChar("a+b<->c+d+e+f");
                     RGstring[reacIndex] = reacGroupSymbol;
                     break;
             }
@@ -1797,13 +1848,11 @@ class Reaction: public Utilities {
         
         int getreactantIndex(int k){
             if(k > numberReactants-1){
-				std::stringstream ss;
-        		ss << "\nERROR Reaction::getreactantIndex(k): k = " << k
-           			<< " larger than #reactants-1 = " << (numberReactants - 1);
-        		std::string errorMessage = ss.str();  // Create the error message as a std::string
-        		std::cout << "\nReac=" << reacIndex << " " << reacLabel[reacIndex] << std::endl;
-        		std::cout << errorMessage << std::endl;  // Print the error message
-        		return -1;
+                printf("\nReac=%d %s",reacIndex,reacLabel[reacIndex]);
+                ss = Utilities::stringToChar(
+                    "\nERROR Reaction::getreactantIndex(k): k = %d larger than #reactants-1 = %d");
+                printf(stringToChar(ss),k,numberReactants-1);
+                return -1;
             } else {
                 return reactantIndex[k];
             }
@@ -1989,10 +2038,11 @@ class Reaction: public Utilities {
             
             if(T9 > 10){           // Temperature above upper bound for library
                 
-           		std::cout << "\n\n\n*** HALTING: t=" << std::fixed << std::setprecision(4) << t 
-              		<< "s and T9=" << std::fixed << std::setprecision(3) << T9
-              		<< "; rates for T9 > 10 are unreliable for this library.\n\n\n";
-    			exit(1);
+                string str("\n\n\n*** HALTING: t=%7.4es and T9=%5.3f; ");
+                str += "rates for T9 > 10 are unreliable for this library.\n\n\n";
+                printf(Utilities::stringToChar(str),t,T9);
+                exit(1);
+                
             }
             
             // If T < 1e7 K set rate = 0 and continue, but set a flag to display
@@ -2478,11 +2528,11 @@ class ReactionVector:  public Utilities {
                     rgindex ++; 
                     rcounter ++;
                     setRG(j, RGclass[j], RGindex[j]);
-        			std::fprintf(pfnet,
-            			"\n%s reacIndex=%d RGindex=%d RGclass=%d RGreacIndex=%d isForward=%d RG:%s",
-            			reacLabel[j], j, rgindex, RGclass[j], RGMemberIndex[j],
-            			isPEforward[j], RGstring[j].c_str());  // Use .c_str() to convert std::string to const char*
-    			}
+                    fprintf(pfnet,
+                    "\n%s reacIndex=%d RGindex=%d RGclass=%d RGreacIndex=%d isForward=%d RG:%s",
+                    reacLabel[j],j, rgindex, RGclass[j], RGMemberIndex[j],
+                    isPEforward[j], Utilities::stringToChar(RGstring[j]));
+                }
             }
             
             // Number of reactions in each RG
@@ -5209,7 +5259,7 @@ void restoreBe8(){
 void showParameters(){
     
     printf("\n\nIntegration using ");
-	printf("%s", intMethod.c_str());  // Use .c_str() to convert std::string to const char*
+    printf(Utilities::stringToChar(intMethod));
     
     if(dopf){
         printf(" (Partition function corrections applied for T9=%4.2f and above)", pfCut9);
