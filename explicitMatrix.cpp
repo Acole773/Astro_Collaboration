@@ -2648,7 +2648,7 @@ class MatrixUtils: public Utilities {
 
             for (int i = 0; i < FLUXCOLS; i++){
                 for (int j = 0; j < FLUXROWS; j++){
-                    gsl_matrix_set(fluxes, i, j, f[i][j]);
+                    fluxes[i][j] = f[i][j];
                 }
             }
         }
