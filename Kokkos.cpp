@@ -1,5 +1,11 @@
 //Kokkos test file
 
+using Kokkos::atomic_add;
+using Kokkos::PerTeam;
+using Kokkos::Sum;
+using Kokkos::TeamPolicy;
+using Kokkos::parallel_for;
+
 __global__ void dot_kernel(const int size, const double* __restrict__ x,
                            const double* __restrict__ y, double* __restrict__ RES) {
     const int n_threads = blockDim.x;
