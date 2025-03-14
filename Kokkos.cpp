@@ -31,7 +31,7 @@ __global__ void dot_kernel(const int size, const double* __restrict__ x,
         *RES = TEMP[0];
     }
 }
-double DotProduct_CUDA(Kokkos::View<double> vec1, Kokkos::View<double> vec2,  double* __restrict__ d_vec1, double* __restrict__ d_vec2, double* __restrict__ d_result ) {
+double DotProduct_Kokkos(Kokkos::View<double> vec1, Kokkos::View<double> vec2,  double* __restrict__ d_vec1, double* __restrict__ d_vec2, double* __restrict__ d_result ) {
     int N_g = vec1.size();
     double result = 0.0;
 
