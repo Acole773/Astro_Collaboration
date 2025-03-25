@@ -1,27 +1,18 @@
 /*
  * Code explicitMatrix.cpp to implement explicit algebraic integration of astrophysical 
- * thermonuclear networks. Execution assuming use of Fedora Linux and GCC compiler: Compile with
+ * thermonuclear networks. Execution assuming use of Fedora Linux and C++ compiler: Compile with
  * 
- *     gcc explicitMatrix.cpp -o explicitMatrix -O2 -lgsl -lgslcblas -lm -lstdc++
- * 
- * [may need to install gsl-devel development package (on Fedora this required
- * dnf install gsl-devel-2.4-8.fc30.x86_64) if it can't find gsl headers in the compile.]
+ *     g++ explicitMatrix.cpp -o explicitMatrix 
+ *      
  * In this compile command the -o specifies the name of the executable created in the
- * compile, the -lgsl flag links to GSL libraries, the -O2 flag sets the level of optimiztion
- * for the compiler, the -lgslcblas flag
- * links to GSL BLAS libraries, the -lm flag may be required in GCC Linux to get the 
- * math.h header to work for defining pow, exp, log,... (see https://
+ * compile, the -O2 flag sets the level of optimiztion
+ * for the compiler, 
+ * cmath header to work for defining pow, exp, log,... (see https://
  * www.includehelp.com/c-programming-questions/error-undefined-reference-to-pow-in-linux.aspx),
- * and lstdc++ is the link flag specifying the C++ compiler to use. 
- * Alternatively you can use the makefile defined the directory to compile with
- * 
- *      make
- * 
- * at the command line. Note that the present make file uses the g++ rather than gcc compiler.
  * 
  * If you plan to use the GDB debugger, add a -g flag:
  * 
- *     gcc explicitMatrix.cpp -o explicitMatrix -O2 -lgsl -lgslcblas -lm -lstdc++ -g
+ *     g++ explicitMatrix.cpp -o explicitMatrix -g
  * 
  * The compiled code created above can be executed with
  * 
@@ -80,6 +71,8 @@
 #include <functional> // Function objects
 #include <chrono>     // Time
 #include <string>	  // Strings
+#include <sstream>    //string stream
+#include <cstring>    //for strcpy
 
 using namespace std;
 
@@ -625,8 +618,8 @@ int totalEquilReactions;    // Total equilibrated reactions for isotope
 int totalEquilRG;           // Total equilibrated reaction groups
 bool normPEX = true;        // Normalize X after PE evol (normally true)
 
-gsl_matrix* fluxes;
-gsl_vector* abundances;
+std::vector<vector<double>> fluxes; //matrix quantity for fluxes
+std::vector<double> abundances; //vector quantity for abundances
 
 // Temporary utility quantities to hold fastest and slowest rate data at
 // a given timestep. The index quantities are the index of the
@@ -877,19 +870,6 @@ class Utilities{
         
         static const int MAXCSIZE = 4500;   // Max string size in stringToChar(string)
         
-        // Static function Utilities::showTime() to return date and local time as a 
-        // character array
-        
-		static std::string showTime() {
-    		auto now = std::chrono::system_clock::now();
-    		std::time_t now_c = std::chrono::system_clock::to_time_t(now);
-
-    		std::ostringstream oss;
-    		oss << std::put_time(std::localtime(&now_c), "%Y-%m-%d %H:%M:%S");  
-    	return oss.str();
-}
-        
-        
         // -------------------------------------------------------------------------
         // Static function Utilities::log10Spacing() to find num equal log10 
         // spacings between two numbers start and stop. The equally log-spaced
@@ -929,7 +909,6 @@ class Utilities{
             FILE* pHydro;
             pHydro = fopen("gnu_out/hydroProfileInput.data","w");
             if( pHydro == NULL ) {
-                fprintf(stderr,"Couldn't open file: %s\n",strerror(errno));
                 exit(1);
             }
             
@@ -1155,7 +1134,7 @@ class Utilities{
 		 (e.g., interfacing with C libraries).
 		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         */
-        static std::string stringToChar(const std::string& s){
+        static char* stringToChar(const std::string& s){
             
             // First ensure that string passed to function is not too long
             
@@ -1166,10 +1145,11 @@ class Utilities{
                   << " is too long for stringToChar(string).\n"
                   << "Change Utilities::MAXCSIZE to at least " << (s.length() + 1) 
                   << " and recompile.\n\n";
-        		std::exit(1);
-                
+        		std::exit(1); 
             }
-            return s; // Return std::string directly
+	    char* charArray = new char[s.length() +1 ];
+	    std::strcpy(charArray, s.c_str());
+            return charArray; // Return char array pointer
         }
         
         // The static function Utilities::charArrayToString (char* a, int size) takes a
@@ -1184,25 +1164,11 @@ class Utilities{
         // and display elapsed time with Utilities::stopTimer().
         // ----------------------------------------------------------------------
         
-        static void startTimer(){
-           start_time = std::chrono::high_resolution_clock::now();  // Capture the start time
-        }
-        
         
         // ----------------------------------------------------------------------
         // Static function Utilities::stopTimer() to stop timer started with 
         // Utilities::startTimer() and display results.
         // ----------------------------------------------------------------------
-        
-		static void stopTimer() {
-    		auto end_time = std::chrono::high_resolution_clock::now();
-    		std::chrono::duration<double> elapsed = end_time - start_time;
-
-    		std::cout << "\nElapsed time: "
-            		  << std::fixed << std::setprecision(6)  // Formatting the time output
-            		  << elapsed.count() << " seconds"
-            		  << "\n";
-		}
         
         
         // ----------------------------------------------------------------------
@@ -1710,7 +1676,7 @@ class Reaction: public Utilities {
         
         // Return reacGroupSymbol as string
         
-        char* getreacGroupSymbol(){ return reacGroupSymbol; }
+        char* getreacGroupSymbol(){ return stringToChar(reacGroupSymbol); }
         
         int getRGmemberIndex(){return RGmemberIndex;}
         
@@ -1990,10 +1956,10 @@ class Reaction: public Utilities {
             // reliable bounds of the library and exit the program at that point.
             
             if(T9 > 10){           // Temperature above upper bound for library
-                
-           		std::cout << "\n\n\n*** HALTING: t=" << std::fixed << std::setprecision(4) << t 
-              		<< "s and T9=" << std::fixed << std::setprecision(3) << T9
-              		<< "; rates for T9 > 10 are unreliable for this library.\n\n\n";
+                //REMINDER just do this with fprintf
+           		//std::cout << "\n\n\n*** HALTING: t=" << std::fixed << std::setprecision(4) << t 
+              		//<< "s and T9=" << std::fixed << std::setprecision(3) << T9
+              		//<< "; rates for T9 > 10 are unreliable for this library.\n\n\n";
     			exit(1);
             }
             
@@ -2632,36 +2598,36 @@ class MatrixUtils: public Utilities {
 
     public:
 
-        // Allocate and populate GSL abundance vector
+        // Allocate and populate abundance vector
         
-        void buildGSLVector(double a[]){
-            abundances = gsl_vector_alloc(FLUXCOLS);
-
+        void buildSTDVector(double a[]){
+            
             for (int i = 0; i < FLUXCOLS; i++){
-                gsl_vector_set(abundances,i,a[i]);
+               abundances.push_back(a[i]);
             }
         }
 
-        // Allocate and populate GSL flux matrix
+        // Allocate and populate flux matrix
         
         void buildGSLMatrix(double f [][FLUXCOLS]){
-            
-            fluxes = gsl_matrix_alloc(FLUXROWS, FLUXCOLS);
-
-            for (int i = 0; i < FLUXCOLS; i++){
+            std::vector<std::vector<double>> MATRIXALLOC(FLUXROWS, std::vector<double>(FLUXCOLS, 0));
+            fluxes = MATRIXALLOC; 
+	    for (int i = 0; i < FLUXCOLS; i++){
                 for (int j = 0; j < FLUXROWS; j++){
                     fluxes[i][j] = f[i][j];
                 }
             }
-        }
 
-        // Matrix vector multiply fluxes * abundances and store back into abundances
-        
-        gsl_vector multiply(gsl_vector a, gsl_matrix f){
+            // Matrix vector multiply fluxes * abundances and store back into abundances
+	    double BIN = 0.0;
+            for (int i = 0; i< FLUXCOLS; i++){
+	       for (int j = 0; j< FLUXROWS; j++){
+	   	    BIN += abundances[i] * fluxes[i][j];
+	        }
+	        abundances[i] = BIN;
+	        BIN = 0.0;
+	    }
             
-            gsl_blas_dgemv(CblasNoTrans, 1.0, fluxes, abundances, 0.0, abundances);
-
-            return *abundances;
         }
 
 };  // end of class MatrixUtils
@@ -4163,8 +4129,8 @@ int main() {
     
     // Write the time
     
-    fprintf(pFileD, Utilities::showTime());
-    printf("\n%s", Utilities::showTime());
+    //fprintf(pFileD, Utilities::showTime());
+    //printf("\n%s", Utilities::showTime());
     
     // Initialize the array of current partition functions to unity.
     
@@ -4213,7 +4179,7 @@ int main() {
     for (int i=0; i<SIZE; i++){ 
         reacIsActive[i] = true;
         reaction[i].setisEquil(false);
-        //reaction[i].setreacGroupSymbol(Utilities::stringToChar(RGstring[i]));
+        reaction[i].setreacGroupSymbol(Utilities::stringToChar(RGstring[i]));
     }
     
     // Determine whether the network contains Be-8, which is handled as
@@ -4273,8 +4239,8 @@ int main() {
             reaction[i].getisReverse(),
             reaction[i].getQ(),
             reaction[i].getprefac(),
-            Utilities::stringToChar(RGstring[i])
-            //reaction[i].getreacGroupSymbol()   // Always returns a<->b?
+            Utilities::stringToChar(RGstring[i]),
+            reaction[i].getreacGroupSymbol()   // Always returns a<->b?
         );
     }
 
@@ -4331,7 +4297,7 @@ int main() {
     // function of the class ReactionVector.
     
     printf("\n\nMaking Reaction Vectors ...");
-    cout.flush();
+    //cout.flush();
     
     ReactionVector::makeReactionVectors();
     
@@ -4340,7 +4306,7 @@ int main() {
     // reaction vectors.
     
     printf("\nSorting Reaction Vectors ...");
-    cout.flush();
+    //cout.flush();
     
     ReactionVector::sortReactionGroups();
     
@@ -4349,7 +4315,7 @@ int main() {
     // ReactionVector::sortReactionGroups() above.
     
     printf("\nAllocating Reaction Group Objects ...");
-    cout.flush();
+    //cout.flush();
     
     RG = (ReactionGroup*) malloc(sizeof(ReactionGroup) * numberRG);
     
@@ -4547,7 +4513,7 @@ int main() {
     XcorrFac = 1.0;
     reacLibWarn = false;
     
-    Utilities::startTimer();    // Start a timer for integration
+    //Utilities::startTimer();    // Start a timer for integration
     
     while(t < stop_time){ 
         
@@ -4869,8 +4835,8 @@ int main() {
     free(FminusIsotopeIndex);
     free(RG);
     
-    gsl_vector_free(abundances);
-    gsl_matrix_free(fluxes);
+    //gsl_vector_free(abundances);
+    //gsl_matrix_free(fluxes);
     
 }  // End of main routine
 
@@ -5260,7 +5226,7 @@ void showParameters(){
         totalTimeSteps,totalIterations,totalTimeSteps-totalTimeStepsZero);
     if(totalTimeSteps > 0) printf("\nMax dt iterations = %d at step %d (t=%5.3e)", 
         mostIterationsPerStep, maxIterationStep, maxIterationTime);
-    if(totalTimeSteps > 0) Utilities::stopTimer();      // Stop timer and print integration time
+    if(totalTimeSteps > 0) //Utilities::stopTimer();      // Stop timer and print integration time
     
     if(reacLibWarn){
         cout << "\n\n*******************************************************************";
