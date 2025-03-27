@@ -4297,8 +4297,8 @@ int main() {
     // function of the class ReactionVector.
     
     printf("\n\nMaking Reaction Vectors ...");
-    //cout.flush();
-    
+    cout.flush();
+    cout << "stop here";
     ReactionVector::makeReactionVectors();
     
     // Use static function ReactionVector::sortReactionGroups() to sort 
@@ -4306,7 +4306,7 @@ int main() {
     // reaction vectors.
     
     printf("\nSorting Reaction Vectors ...");
-    //cout.flush();
+    cout.flush();
     
     ReactionVector::sortReactionGroups();
     
@@ -4315,7 +4315,7 @@ int main() {
     // ReactionVector::sortReactionGroups() above.
     
     printf("\nAllocating Reaction Group Objects ...");
-    //cout.flush();
+    cout.flush();
     
     RG = (ReactionGroup*) malloc(sizeof(ReactionGroup) * numberRG);
     
