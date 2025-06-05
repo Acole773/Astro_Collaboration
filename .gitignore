@@ -1,3 +1,12 @@
+# Other:
+
+gnu_out/
+gnu_out/diagnostics.data
+gnu_out/network.data
+
+kokkos_test_report.txt
+test_temp.cpp
+
 # Prerequisites
 *.d
 
