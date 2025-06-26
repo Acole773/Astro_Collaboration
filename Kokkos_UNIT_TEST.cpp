@@ -1,5 +1,6 @@
 #include <Kokkos_Core.hpp>
 #include "Kokkos_DotProduct.hpp"
+#include "Kokkos_MatrixVector.hpp"
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -8,12 +9,15 @@
 
 /*****************************************/
 
+void Initialize_Test(
 int main(int argc, char* argv[]) {
     Kokkos::initialize(argc, argv);
     {
         constexpr int N_g = 1000;
         bool DebugCheck = true;
         double tol = 1e-10;
+
+	// --- dot product setup and test here ---
 
         // Allocate and initialize host vectors
         std::vector<double> h_Nnew(N_g, 1.0);
@@ -54,7 +58,46 @@ int main(int argc, char* argv[]) {
                 std::cout << "Host:   " << sum_Nnew_dV_ref << " " << sum_Nold_dV_ref << std::endl;
             }
         }
-    }
+
+        // --- matrix-vector product test STARTS here ---
+        std::vector<std::vector<double>> h_cMat(N_g, std::vector<double>(N_g));
+        for (int i = 0; i < N_g; ++i)
+            for (int j = 0; j < N_g; ++j)
+                h_cMat[i][j] = 0.001 * (i + j + 1);
+
+        std::vector<double> h_result(N_g, 0.0);
+        std::vector<double> reference(N_g, 0.0);
+
+        for (int i = 0; i < N_g; ++i)
+            for (int j = 0; j < N_g; ++j)
+                reference[i] += dt * h_cMat[i][j] * h_Nold[j];
+
+        Kokkos::View<double**> cMat("cMat", N_g, N_g);
+        for (int i = 0; i < N_g; ++i)
+            for (int j = 0; j < N_g; ++j)
+                cMat(i, j) = h_cMat[i][j];
+
+        Kokkos::View<double*> Nnew_2("Nnew_2", N_g);
+        Kokkos::deep_copy(Nnew_2, 0.0);
+
+        MatrixVectorProduct_Kokkos(cMat, Nold, Nnew_2, dt);
+
+        Kokkos::deep_copy(h_result, Nnew_2);
+
+        bool valid = true;
+        for (int i = 0; i < N_g; ++i) {
+            if (std::abs(h_result[i] - reference[i]) > tol) {
+                valid = false;
+                break;
+            }
+        }
+
+        if (valid)
+            std::cout << "MATRIX_VECTOR_PRODUCT functioning nominally" << std::endl;
+        else
+            std::cout << "MATRIX_VECTOR_PRODUCT ERROR" << std::endl;
+        // --- matrix-vector product test ENDS here ---
+	}
     Kokkos::finalize();
     return 0;
 }
